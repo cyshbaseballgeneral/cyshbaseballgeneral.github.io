@@ -1,124 +1,61 @@
+.navbar {
+    background-color: #004080;
+}
 
-header {
-    background-color: #002147;
-    color: white;
-    padding: 15px;
+.navbarImg {
+    height: auto;
+    width: 60px;
+}
+
+.nav-link:after {
+    display: none;
+}
+
+.nav-item {
+    width: 160px;
+    text-align: center;
+    margin: 5px;
+    font-size: 20px;
+}
+
+.nav-item:hover {
+    background-color: #0055aa;
+    border-radius: 10px;
+}
+
+.dropdown-menu {
+    background-color: #004080;
     text-align: center;
 }
 
-
-nav {
-    background-color: #004080;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: flex-start; 
-    width: 50%;
-}
-
-nav ul li {
-    margin: auto;
-    position: relative;
-    width: 120px;
-    height: auto;
-    text-align: center; 
-}
-
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    padding: 10px;
-    display: block; 
-}
-
-/* 游標移動到圖片時顯示淺藍色底 */
-nav ul li a:hover {
+.dropdown-menu :hover {
     background-color: #0055aa;
-    border-radius: 5px;
+    color: white;
 }
 
-/* 下拉菜單樣式 */
-nav ul li ul {
-    display: none; /* Hide dropdown by default */
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    left: 0;
-    background-color: #004080;
-    padding: 10px 0;
-    list-style: none;
-    margin: 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.dropdown-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    color: white;
 }
 
-nav ul li:hover ul {
-    display: block; 
-}
 
-nav ul li ul li {
-    margin: 0;
-}
-
-/* 手機版 */
-@media (max-width: 768px) {
-    .menu-toggle {
+@media (min-width: 992px) {
+    .dropdown:hover ul {
         display: block;
     }
+}
 
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #004080;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-        width: 100%; 
-    }
-
-    nav ul li ul {
-        position: static;
-        width: 100%;
+@media (max-width: 992px) {
+    .nav-item {
+        width: auto;
     }
 }
 
+
 main {
-    padding-top: 10px; 
+    padding-top: 10px;
 }
 
 .players-container {
@@ -161,15 +98,15 @@ footer {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    margin: 0; 
-    margin-bottom: 20px; 
+    margin: 0;
+    margin-bottom: 20px;
 }
 
 .news-content {
     width: 80%;
     display: flex;
     align-items: center;
-    gap: 10px; 
+    gap: 10px;
 }
 
 button {
@@ -190,7 +127,7 @@ button:hover {
 
 .news-wrapper {
     overflow: hidden;
-    width: 100%;  
+    width: 100%;
     height: 300px;
     display: flex;
     align-items: center;
@@ -221,25 +158,25 @@ button:hover {
 #schedule {
     background-color: rgba(128, 128, 128, 0.356);
     display: flex;
-    justify-content: center;  
-    align-items: center;      
-    text-align: center;       
-    margin: 20px;             
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
 }
 
 #schedule table {
-    border-collapse: collapse; 
-    width: 100%;               
-    margin-top: 20px;         
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
 #schedule th, #schedule td {
-    padding: 20px;          
-    border: 3px solid #000000;   
+    padding: 20px;
+    border: 3px solid #000000;
 }
 
 #schedule h2 {
-    margin-bottom: 20px;       
+    margin-bottom: 20px;
 }
 
