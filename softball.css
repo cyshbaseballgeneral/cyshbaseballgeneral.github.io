@@ -1,8 +1,7 @@
-/* 基本樣式設定 */
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    text-align: center; /* 置中所有內容 */
+    text-align: center;
 }
 
 h1 {
@@ -22,6 +21,7 @@ label {
     margin-top: 20px;
     width: 80%; 
     margin: 20px auto; 
+    min-height: 500px;
 }
 
 .schedule-card {
@@ -37,3 +37,32 @@ label {
 .schedule-card p {
     margin: 5px 0;            
 }
+
+.softballgame{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px;
+}
+
+@media (max-width: 600px) {
+    .row {
+        flex-direction: column;
+        gap: 15px; 
+    }
+    
+    .softballgame{
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+}
+

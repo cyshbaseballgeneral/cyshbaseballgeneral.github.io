@@ -7,19 +7,24 @@
     <link rel="stylesheet" href="softball.css">
 </head>
 <body>
-    <h1>2025班際壘球賽賽程</h1>
+    <h1>2025班際壘球賽賽程查詢</h1>
 
-    <!-- 日期選擇器 -->
-    <label for="date-picker">選擇日期:</label>
-    <input type="date" id="date-picker">
-    <input type="text" id="teams-picker">
-    <button onclick="showSchedule()">搜尋</button>
-
-    <h2>賽程</h2>
-    <div id="schedule-container">
-        <!-- 賽程將會動態顯示在這裡 -->
+    <div class="row">
+        <label for="date-picker">選擇日期:</label>
+        <input type="date" id="date-picker">
+        <p>選擇班級：</p>
+        <input type="text" id="teams-picker">
+        <button onclick="showSchedule()">搜尋</button>
     </div>
+    
 
+    <h2>賽程動態顯示區</h2>
+    <div id="schedule-container">
+        <!--賽程顯示動態-->
+    </div>
+    <div class="gameimg">
+        <img src="img\nav\2025cyshsoftballgame.jpg" class="softballgame">
+    </div>
     <script  src="softball.js"></script>
 </body>
 </html>
