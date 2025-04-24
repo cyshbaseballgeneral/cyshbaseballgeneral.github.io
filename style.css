@@ -172,7 +172,7 @@ button:hover {
 }
 
 /* 純文字新聞項目的樣式 */
-.news-item:not(:first-child) {
+.news-item:not(.with-image) {
     background: #9c9c9c;
     padding: 20px;
     text-align: center;
