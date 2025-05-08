@@ -184,6 +184,20 @@ button:hover {
     white-space: normal; /* 允許文字換行 */
 }
 
+/*----------------calendar-------------------*/
+#calendar {
+    display: flex;
+    flex-direction: column; /* 垂直h1 上iframe 下 */
+    align-items: center;     /* 置中 */
+  }
+
+  .calendar {
+    border: 0;
+    width: 80%;
+    height: 800px;
+  }
+
+
 /*----------------schedule-------------------*/
 #schedule {
     background-color: rgba(128, 128, 128, 0.356);
