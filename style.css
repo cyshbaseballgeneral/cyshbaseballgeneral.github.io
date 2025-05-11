@@ -187,11 +187,19 @@ button:hover {
     align-items: center;     /
   }
 
-  .calendar {
+.calendar {
     border: 0;
     width: 80%;
     height: 800px;
   }
+
+#calendar h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+}
 
 #players h1 {
   text-align: center;
@@ -224,3 +232,10 @@ button:hover {
   border-radius: 5px;
 }
 
+#players h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+}
