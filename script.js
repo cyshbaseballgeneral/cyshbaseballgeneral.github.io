@@ -52,3 +52,31 @@ const apiUrl = 'https://script.google.com/macros/s/AKfycbwInTcnlQ3jRC2XK5z4SgPvC
       .catch(error => {
         console.error('撈取資料失敗:', error);
       });
+
+const coachApiUrl = 'https://script.google.com/macros/s/AKfycbySidkZlQje9R8JHqhXs8nqLdSxw8Ak2XpRrmdx109UGjjDrwxB_bbI_4MVnZo2yC02/exec';
+
+      fetch(coachApiUrl)
+      .then(res => res.json())
+      .then(data => {
+        const coachList = document.getElementById('coachs-container');
+        data.forEach(coach => {
+          const coachCard = document.createElement('div');
+          coachCard.classList.add('coach-card');
+
+          coachCard.innerHTML = `
+            <div class="coach-photo">
+              <img src="img/coachs/${coach.大頭照路徑}" alt="教練照片">
+            </div>
+            <div class="coach-info">
+              <div><strong>${coach.職位 ? `${coach.職位}&nbsp;&nbsp;&nbsp;&nbsp;` : ''}${coach.姓名}</strong></div>
+              <div class="jersey-number"><strong>背號&nbsp;&nbsp;&nbsp;&nbsp;${coach.背號}</strong></div>
+              <div>經歷：${coach.經歷}</div>
+              <div>學歷：${coach.學歷}</div>
+            </div>  <!-- 這裡加上關閉標籤 -->
+          `;
+          coachList.appendChild(coachCard);
+        });
+      })
+      .catch(error => {
+        console.error('撈取教練資料失敗:', error);
+      });

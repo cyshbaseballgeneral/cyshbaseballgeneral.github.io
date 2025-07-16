@@ -1,0 +1,103 @@
+#coachs h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 20px;
+}
+
+.coachs-container {
+  max-width: 1500px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.coach-card {
+  position: relative;  /* 讓 ::before 定位參考 */
+  width: 100%;          
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+
+  color: white;
+}
+
+/* 背景圖用 ::before 放置 */
+.coach-card::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  background-image: url('img/coachs/coachbackground.jpg'); 
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.coach-photo,
+.coach-info {
+  position: relative;
+  z-index: 1;
+}
+
+.coach-photo {
+  flex-shrink: 0;
+}
+
+.coach-photo img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.coach-info {
+  margin-left: 20px;
+  font-size: 1.8rem;
+  max-width: 100%;
+}
+
+.coach-info strong {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+
+@media (max-width: 768px) {
+  .coach-card {
+    width: 100%;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .coach-photo img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .coach-info {
+    margin-left: 0;
+    font-size: 1rem;
+  }
+
+  .coach-info strong {
+    font-size: 1.8rem;
+  }
+
+  .jersey-number {
+    font-size: 3rem;
+    right: auto;
+    left: 20px;
+    top: 10px;
+    transform: none;
+  }
+}
