@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         goToIndex(currentIndex);
     }
 
-    // 自動輪播每5秒
+    // 自動輪播每?秒
     let autoSlide = setInterval(nextSlide, 2500);
 
     // 左右按鈕功能
