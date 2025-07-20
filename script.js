@@ -80,3 +80,69 @@ const coachApiUrl = 'https://script.google.com/macros/s/AKfycbySidkZlQje9R8JHqhX
       .catch(error => {
         console.error('撈取教練資料失敗:', error);
       });
+
+//新聞輪播功能
+document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.querySelector(".news-slider");
+    const items = document.querySelectorAll(".news-item");
+    const totalItems = items.length;
+    let currentIndex = 0;
+
+    function goToIndex(index) {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalItems;
+        goToIndex(currentIndex);
+    }
+
+    // 自動輪播每5秒
+    let autoSlide = setInterval(nextSlide, 2000);
+
+    // 左右按鈕功能
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        nextSlide();
+        resetAutoSlide();
+    });
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        goToIndex(currentIndex);
+        resetAutoSlide();
+    });
+
+    // 重置自動輪播計時
+    function resetAutoSlide() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(nextSlide, 5000);
+    }
+
+    // 手機滑動功能
+    let startX = 0;
+    let isDragging = false;
+
+    slider.addEventListener("touchstart", function (e) {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+    });
+
+    slider.addEventListener("touchmove", function (e) {
+        if (!isDragging) return;
+        let diffX = e.touches[0].clientX - startX;
+        if (Math.abs(diffX) > 50) {
+            if (diffX < 0) {
+                nextSlide();
+            } else {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                goToIndex(currentIndex);
+            }
+            isDragging = false;
+            resetAutoSlide();
+        }
+    });
+
+    slider.addEventListener("touchend", function () {
+        isDragging = false;
+    });
+});
