@@ -183,12 +183,11 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-    /* 手機板隱藏按鈕 */
+    /* 手機隱藏按鈕 */
     #prevBtn, #nextBtn {
         display: none;
     }
-
-    /* 圖片填滿整個 news-content */
+    /* 手機圖片填滿整個news-content */
     .news-content {
         flex-direction: column;
         gap: 0;
@@ -198,7 +197,7 @@ button:hover {
         width: 100%;
         padding-bottom: 0;
         height: auto;
-        aspect-ratio: 16 / 9; /* 可依需求調整 */
+        aspect-ratio: 16 / 9; 
     }
 
     .news-slider {
