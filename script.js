@@ -103,20 +103,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // 左右按鈕功能
     document.getElementById("nextBtn").addEventListener("click", () => {
         nextSlide();
-        resetAutoSlide();
+        //resetAutoSlide();
     });
 
     document.getElementById("prevBtn").addEventListener("click", () => {
         currentIndex = (currentIndex - 1 + totalItems) % totalItems;
         goToIndex(currentIndex);
-        resetAutoSlide();
+        //resetAutoSlide();
     });
 
     // 重置自動輪播計時
-    function resetAutoSlide() {
+    /*function resetAutoSlide() {
         clearInterval(autoSlide);
         autoSlide = setInterval(nextSlide, 5000);
-    }
+    }*/
 
     // 手機滑動功能
     let startX = 0;
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 goToIndex(currentIndex);
             }
             isDragging = false;
-            resetAutoSlide();
+            //resetAutoSlide();
         }
     });
 
