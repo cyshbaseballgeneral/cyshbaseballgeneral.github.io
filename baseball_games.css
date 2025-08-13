@@ -1,0 +1,222 @@
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+/* 下拉選單區 */
+.dropdown-wrapper {
+  display: flex;
+  align-items: center; /* 垂直置中文字與選單 */
+  justify-content: center; /* 水平置中整行 */
+  gap: 10px; /* 文字與選單間距 */
+  margin-bottom: 30px;
+}
+
+.dropdown-wrapper span {
+  margin: 0;
+  line-height: 36px; /* 與選單高度一致 */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-selected {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  cursor: pointer;
+  min-width: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 36px;
+  line-height: normal;
+}
+
+.dropdown-selected .arrow {
+  margin-left: 10px;
+  transition: transform 0.3s;
+}
+
+.dropdown-selected.active .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1e1e1e;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 6px;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  z-index: 100;
+  width: 100%;        /* 與上方選單同寬 */
+  box-sizing: border-box;
+}
+
+.dropdown-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+  position: relative; 
+}
+
+.dropdown-list li:last-child {
+  border-bottom: none;
+}
+
+/* 右展子選單 */
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #1e1e1e;
+  list-style: none;
+  padding: 0;
+  margin:0;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  min-width: 180px;
+  z-index: 100;
+  font-weight: 500;
+  color: #ffcc00;
+}
+
+.submenu li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #333;
+  white-space: nowrap;
+}
+
+.submenu li:last-child {
+  border-bottom: none;
+}
+
+/* 下拉選單移入效果 */
+.dropdown-list li:hover,
+.submenu li:hover {
+  background-color: #2c2c2c; /* 反白背景 */
+  color: #ffcc00;            
+}
+
+/* 區塊 */
+.block {
+  background-color: #1e1e1e;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffcc00;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+thead tr {
+  background-color: #2c2c2c;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #333;
+}
+
+tr:nth-child(even) {
+  background-color: #252525;
+}
+
+td:first-child {
+  font-weight: 600;
+}
+
+/* 勝敗顏色 */
+td.win {
+  color: #f44336;  /* 勝：紅色 */
+  font-weight: 600;
+}
+
+td.lose {
+  color: #4caf50;  /* 敗：綠色 */
+  font-weight: 600;
+}
+
+/* 排名 + 勝敗區 */
+.summary {
+  display: flex;
+  justify-content: space-between; /* 左右對齊 */
+  width: 100%;
+  margin-top: 10px;
+  font-weight: 500;
+  color: #ffcc00;
+}
+
+.summary .record {
+  text-align: left;
+}
+
+.summary .ranking {
+  text-align: right;
+}
+
+/* 手機板：螢幕寬度小於 768px 時 */
+@media (max-width: 768px) {
+  /* 子選單改為直下展開 */
+  .dropdown-list li .submenu {
+    position: static;      /* 取消絕對定位，讓它往下排列 */
+    display: none;         /* 初始隱藏 */
+    width: 100%;           /* 與父 li 同寬 */
+    background-color: #2c2c2c; /* 手機板子選單顏色 */
+    box-shadow: none;      
+    border-radius: 6px;
+    margin-top: 5px;
+    box-sizing: border-box; /* 包含 padding 計算寬度 */
+  }
+
+  .dropdown-list li .submenu li {
+    white-space: normal;    /* 文字自動換行，不會超出 */
+    padding: 8px 12px;
+    border-bottom: 1px solid #333;
+  }
+
+  .dropdown-list li .submenu li:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown-wrapper {
+    flex-direction: column; /* 變成上下排列 */
+    align-items: center;    /* 置中 */
+    gap: 5px;               /* 文字與下拉間距 */
+  }
+}

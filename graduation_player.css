@@ -1,0 +1,148 @@
+body { 
+  font-family: Arial, sans-serif; 
+  max-width: 900px; 
+  margin: auto; 
+  padding: 20px; 
+  background-color: #1e1e2f; 
+  color: #f0f0f0; 
+}
+
+.page-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.year-select {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #444; /* 灰色分隔線 */
+}
+
+label {
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+.custom-select {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  min-width: 150px;
+}
+
+.selected {
+  padding: 10px 14px;
+  background-color: #2c2c3c;
+  color: #f0f0f0;
+  font-size: 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+}
+
+/* 箭頭 */
+.selected::after {
+  content: "▼";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #2c2c3c;
+  border-radius: 6px;
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  z-index: 100;
+}
+
+.options li {
+  padding: 10px;
+  cursor: pointer;
+  color: #f0f0f0;
+  text-align: left;
+}
+
+.options li:hover {
+  background-color: #444466;
+}
+
+
+.options li {
+  padding: 10px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.options li:hover {
+  background-color: #444;
+}
+
+.center-text {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.center-text a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.center-text a:hover {
+  text-decoration: underline;
+  color: #ffd633;
+}
+
+/* 球員卡 */
+.player {
+  border-radius: 12px;
+  background-image: url('img/graduation_players/playerbackground.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #f0f0f0;
+  padding: 20px;
+  margin: 10px auto;
+  border-radius: 8px;
+  max-width: 700px;
+  font-size: 1.5rem; /* 整體放大 */
+  line-height: 2rem;
+}
+
+.player .name-year {
+  font-weight: bold;
+  font-size: 2rem; /* 姓名 + 年度更大 */
+  margin-bottom: 10px;
+}
+
+.player div {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 600px) {
+  .selected, .options li {
+    font-size: 1.2rem;
+  }
+  .player {
+    font-size: 0.95rem;
+  }
+  .player strong {
+    font-size: 1.2rem;
+  }
+}

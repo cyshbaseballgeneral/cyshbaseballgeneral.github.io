@@ -8,8 +8,6 @@ fetch(apiUrl)
       const playerCard = document.createElement('div');
       playerCard.classList.add('player-card');
 
-
-     
       playerCard.innerHTML = `
         <div class="player-photo">
           <img src="img/players/${player.大頭照路徑}" alt="球員照片">
