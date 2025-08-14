@@ -17,11 +17,14 @@ function createCustomSelect(years) {
   years.forEach(year => {
     const li = document.createElement("li");
     li.textContent = year;
-    li.addEventListener("click", () => {
+
+    li.addEventListener("click", (e) => {
       selected.textContent = year;
       optionsContainer.style.display = "none";
       loadPlayers(year);
+      e.stopPropagation();
     });
+
     optionsContainer.appendChild(li);
   });
 
@@ -47,23 +50,26 @@ function getYearsCallback(data) {
 function loadPlayers(year) {
   const callbackName = 'loadPlayersCallback';
   window[callbackName] = function(data) {
-    let list = document.getElementById("playerList");
+    const list = document.getElementById("playerList");
     list.innerHTML = "";
     data.forEach(player => {
-      const div = document.createElement("div");
-      div.className = "player";
-      div.innerHTML = `
-        <div class="name-year">${player['姓名']} &nbsp;&nbsp; 畢業年度：${player['畢業年度']}</div>
-        <div>最高學歷：${player['最高學歷']}</div>
-        <div>目前任職：${player['目前任職']}</div>
-        <div>所屬球隊：${player['所屬球隊']}</div>
-      `;
-      list.appendChild(div);
+      if (year === "ALL" || player['畢業年度'] === year) {
+        const div = document.createElement("div");
+        div.className = "player";
+        div.innerHTML = `
+          <div class="name-year">${player['姓名']} &nbsp;&nbsp; 畢業年度：${player['畢業年度']}</div>
+          <div>最高學歷：${player['最高學歷']}</div>
+          <div>目前任職：${player['目前任職']}</div>
+          <div>所屬球隊：${player['所屬球隊']}</div>
+        `;
+        list.appendChild(div);
+      }
     });
   };
   loadJSONP(`${API_URL}?year=${year}`, callbackName);
 }
 
-
 // 初始呼叫
-loadJSONP(`${API_URL}?year=ALL`, 'getYearsCallback');
+document.addEventListener("DOMContentLoaded", () => {
+  loadJSONP(`${API_URL}?year=ALL`, 'getYearsCallback');
+});
