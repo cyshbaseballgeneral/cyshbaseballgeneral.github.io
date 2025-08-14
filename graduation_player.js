@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbwI71FiWoRXfU-SH2okkLQpydXZXkgO7rpvkeBu9dDw/dev";
+const API_URL = "https://script.google.com/macros/s/AKfycby59D7DQk2mbMzsqVVR_-79DRYwxEjB9XcMrpTtMIXo-OKh3DPt1QTccql8_f08egcphg/exec";
 
 // JSONP 載入資料
 function loadJSONP(url, callbackName) {
