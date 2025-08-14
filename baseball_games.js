@@ -55,7 +55,8 @@ document.addEventListener("DOMContentLoaded", function() {
           if (window.innerWidth > 768) {
             subUl.style.display = "block";
             // 對齊父項高度
-            subUl.style.top = li.offsetTop + "px";
+            //subUl.style.top = li.offsetTop + "px";
+            subUl.style.top = "0"; // 保證貼齊父項
           }
         });
         li.addEventListener("mouseleave", () => {

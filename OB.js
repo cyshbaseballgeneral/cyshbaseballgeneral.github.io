@@ -1,11 +1,10 @@
-// 1. 歷史比賽資料
+// 歷史比賽資料
 const historyUrl = 'https://script.google.com/macros/s/AKfycbxa3CQmWsttZemnoefMh1bFX3B0qx9uWNgCaw6zcaL69sf8Fe-MOjehP_NqDXbWsxjMDA/exec';
 
-// 2. 下一場比賽日期（JSONP）
+// 下一場比賽日期（JSONP）
 const nextOBUrl = 'https://script.google.com/macros/s/AKfycbxSpSF9cPXF34yzZsD0wnrFFeZbHHuWBX_E6eQ_zXAbf08-C13r8Ftn6Hka1XJB3Z6Z9w/exec';
 
-// -----------------------
-// 讀取歷史比賽資料
+// 歷史比賽資料
 fetch(historyUrl)
   .then(res => res.json())
   .then(data => {
@@ -30,15 +29,13 @@ fetch(historyUrl)
   })
   .catch(err => console.error('讀取歷史比賽資料失敗', err));
 
-// -----------------------
-// 讀取下一場比賽日期（JSONP）
+// 下一場比賽日期（JSONP）
 function loadNextOB() {
   const script = document.createElement('script');
   script.src = nextOBUrl + '?callback=handleNextOB';
   document.body.appendChild(script);
 }
 
-// JSONP 回呼函式
 function handleNextOB(data) {
   if (!data || !data.nextOBDate) {
     console.error('下一場OB賽資料不存在');
@@ -58,7 +55,7 @@ function handleNextOB(data) {
 // 啟動 JSONP 載入
 loadNextOB();
 
-// 倒數計時函式
+// 倒數計時
 function startCountdown(targetDate) {
   const countdownEl = document.getElementById('countdown');
 
