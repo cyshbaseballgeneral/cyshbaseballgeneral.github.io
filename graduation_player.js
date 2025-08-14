@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
       li.textContent = year;
       li.addEventListener("click", e => {
         selectedYear = year;
-        selectedDiv.innerHTML = year + ' <span class="arrow">▼</span>';
+        selectedDiv.innerHTML = year ;
         list.style.display = "none";
         selectedDiv.classList.remove("active");
         renderPlayers();
