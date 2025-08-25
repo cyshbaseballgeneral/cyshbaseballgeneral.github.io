@@ -151,6 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       let winCount = 0;
       let loseCount = 0;
+      let drawCount = 0;//和局
 
       grouped[type].forEach(r => {
         if (r["客隊"] && r["主隊"]) {
@@ -160,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function() {
             tdResult.textContent = r["比賽結果"] || "";
             if (r["比賽結果"] === "勝") tdResult.classList.add("win");
             if (r["比賽結果"] === "敗") tdResult.classList.add("lose");
+            if (r["比賽結果"] === "和") tdResult.classList.add("draw"); 
             tr.appendChild(tdResult);
 
             const keys = ["客隊", "主隊", "客隊得分", "主隊得分", "比賽日期", "比賽種類"];
@@ -173,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (r["比賽結果"] === "勝") winCount++;
             if (r["比賽結果"] === "敗") loseCount++;
+            if (r["比賽結果"] === "和") drawCount++;
         }
     });
 
@@ -183,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const summaryDiv = document.createElement("div");
       summaryDiv.className = "summary";
       summaryDiv.innerHTML = `
-      <span class="record">${winCount}勝 ${loseCount}敗</span>
+      <span class="record">${winCount}勝 ${loseCount}敗 ${drawCount}和</span>
       <span class="ranking">${rankingRow && rankingRow["排名"] ? "排名：" + rankingRow["排名"] : ""}</span>
       `;
       block.appendChild(summaryDiv);
