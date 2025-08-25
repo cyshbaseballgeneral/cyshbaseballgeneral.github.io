@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       const tbody = document.createElement("tbody");
 
-      grouped[type].sort((a,b)=>new Date(a["比賽日期"])-new Date(b["比賽日期"]));
+      grouped[type].sort((a,b) => new Date(b["比賽日期"]) - new Date(a["比賽日期"]));
 
       let winCount = 0;
       let loseCount = 0;
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const keys = ["客隊", "主隊", "客隊得分", "主隊得分", "比賽日期", "比賽種類"];
             keys.forEach(key => {
                 const td = document.createElement("td");
-                td.textContent = key === "比賽日期" ? formatDate(r[key]) : r[key] || "";
+                td.textContent = key === "比賽日期" ? formatDate(r[key]) : (r[key] !== undefined && r[key] !== null ? r[key] : "");
                 tr.appendChild(td);
             });
 
